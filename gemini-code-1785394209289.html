@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nino Aiyer</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #1e1e24;
+            --accent-color: #5a6b7c;
+            --border-color: #e5e5e5;
+            --max-width: 900px;
+            --font-serif: "Georgia", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        header.site-header {
+            max-width: var(--max-width);
+            margin: 0 auto 4rem auto;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        header.site-header h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-title {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-intro {
+            margin-bottom: 3rem;
+        }
+
+        .section-intro h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            color: #4a4a50;
+            font-size: 1.1rem;
+        }
+
+        .excerpt {
+            margin-bottom: 4rem;
+        }
+
+        .excerpt h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .excerpt .meta {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .excerpt .content {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: #2c2c35;
+        }
+
+        .excerpt .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .academic-header {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .sources {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .sources h4 {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .sources ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .sources ul li {
+            margin-bottom: 0.25rem;
+            color: #555;
+        }
+
+        .sources a {
+            color: var(--accent-color);
+            word-break: break-all;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-layout {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 4px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .image-wrapper {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            max-width: var(--max-width);
+            margin: 5rem auto 2rem auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Nino Aiyer</h1>
+        <nav>
+            <a href="#research">Research</a>
+            <a href="#music">Music Portfolio</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- RESEARCH SECTION -->
+        <section id="research">
+            <h2 class="section-title">Research</h2>
+            
+            <div class="section-intro">
+                <h2>Historical Research, Digital Archiving, and Political Advocacy</h2>
+                <p>Examining the architecture of state containment and resistance in mid-to-late, 20th century America, the following excerpts investigate how marginalized communities leverage grassroots alternative media, independent journalism networks, oral history archives, and expressive sonic art forms to disrupt hegemonic power, recover stolen histories, and contest white-supremacist narratives.</p>
+            </div>
+
+            <!-- Excerpt 1 -->
+            <div class="excerpt">
+                <h3>Exposing Segregation: How Media Affected Austin’s Chicano Movement</h3>
+                <div class="meta">Excerpt from an archival project focused on the Mexican-American liberation movement in Austin, Texas.</div>
+                
+                <div class="content">
+                    <div class="academic-header">
+                        Professor Laurie Green<br>
+                        The Civil Rights Movement From a Comparative Perspective<br>
+                        05/01/2024<br>
+                        Written by Nino Aiyer
+                    </div>
+                    
+                    <p>…Mexican-American activists used newspaper media to uniquely re-orient supporters of the historic TFWU March towards the political controversy underscoring the disparity between Austin neighborhoods. El Despertador was the voice of community outreach for UT’s chapter of the Mexican American Youth Organization (MAYO); it published relevant stories about Chicano activism, Chicano politics, and Chicano pop culture, etc. Activism in MAYO, and El Despertador, depended on the collective commitment to specifically publishing Chicano-focused articles. The newspapers’ key motivation to reach an intended audience of nearby Texas Chicanos influenced the nature of the articles published. El Despertador’s “Paz En El Barrio” article, for example, wrote about the profound significance of the TFWU march from San Juan, Texas to Austin’s Capitol building. The article asserted that the TFWU march’s presence in Austin represented a call to action for local activists; it posited that support for the TFWU march indicated a present incentive to work on other, local issues. The newspaper emphasized this by stating that, “rallies held in South Texas cities that the marcha passed through proved to be instrumental in channeling information to the public about actual legislation affecting los campensincs [farmworkers]”. Many Austin Chicano families contained at least several former or current farmworkers, who navigated a host of obstacles living in the area. The article touches on the TFWU march’s relation to the recent senate election of Lloyd Doggett, who’s recent win resulted from the popularity of his “neighborhood integrity” policy. This coded term, according to El Despertador, represented a broader, semantic strategy to prioritize the development of Austin’s predominately-white North instead of expanding affordable housing or alleviating local poverty. The article likely garnered extreme significance due to the revealing nature of its criticism of Doggett. El Despertador's argument effectively pushed the narrative that blatant racism in Austin politics needed to be addressed with an ideal amount of community support. Using the TWFU march as evidence, El Despertador seized the rare opportunity to expose Austin’s deep-seeded history of racialized politics. Readers likely felt an urgent need to participate in whatever issue came up next. The “Paz En El Barrio” article inspired hope.</p>
+                    
+                    <p>El Despertador’s call to action motivated Chicanos to mobilize around the issue of boat races on the East side; Mexican-American citizens who galvanized around the issue undoubtedly learned about Austin’s prioritization of predominantly-white neighborhoods. The boat races, being a topic of discussion in “Paz En El Barrio”, pressed an issue affecting the standard of living for countless East side residents. Mexican-Americans living in the area endured the extremely loud noise and disruptive antics of affluent Austinites who frequently held boat races. Policies like “neighborhood integrity” not only prevented low-income housing in North Austin, they protected the boat racers from any legal repercussions for this harassment. After city council denied a request to shut down the races, El Desperatador released an article detailing the racial undertones of the decision, revealing the ways it exemplified the ongoing prejudice in Austin politics.The article revealed that “the four votes ‘for’ having the boat races never once questioned the fact that Travis County [had] chingos [a lot] of water”. This pushed the point that Austin politicians simply did not care about the interests of its Chicano neighborhoods. The article's scorching criticism of Austin’s “gringo” controlled government significantly underlined the racial divide that informed all decisions made by Austin’s polity. This dialogue transcended the commonplace call for increased representation. The article affirmed that Austin politics not only relied on racial prejudice, but encouraged it. El Despertador also implied that Austin Chicanos felt that the City Council decision shut down ideas of compromise. The potential to relocate the races to other areas of Austin existed; Chicanos preferred an area closer to where the boat races’ participants resided…</p>
+                </div>
+
+                <div class="sources">
+                    <h4>Primary Sources</h4>
+                    <ul>
+                        <li>El Despertador. Despertador, El, March 1, 1977.</li>
+                        <li>Gutiérrez, Armando. "Chicano Health Demographics." Radio program, no. 15, Austin, Texas, 1979.</li>
+                    </ul>
+                    <h4>Secondary Sources</h4>
+                    <ul>
+                        <li>Xiong, C. “Keep Austin Divided: A Foundation of Segregation,” Medium, February 23, 2018, <a href="https://medium.com/the-healthy-city/keep-austin-divided-a-foundation-of-segregation-af40e5b35c3" target="_blank">https://medium.com/the-healthy-city/keep-austin-divided-a-foundation-of-segregation-af40e5b35c3</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Excerpt 2 -->
+            <div class="excerpt">
+                <h3>Challenging The Frameworks of Texas Civil Rights History</h3>
+                <div class="meta">A digital archiving project focused on discovering unheard accounts of racially motivated executions from the 1920’s to 1970’s.</div>
+                
+                <div class="content">
+                    <div class="academic-header">
+                        Project Research Lead: Naveen (Nino) Aiyer<br>
+                        Contributors: Jillian Shimkin, Esteban Perez; Joel Abraham<br>
+                        Instructor: Stephanie Childress<br>
+                        Course: Archives & Activism: Texas Memory/Digital Recovery<br>
+                        Presentation Date: November 30, 2022
+                    </div>
+
+                    <p><strong>Project Summary:</strong><br>
+                    …Our team carefully uncovered hidden stories about executions in Texas from the 1920's to the 1970's which challenge the traditional narrative of Texas Civil Rights history. The stories reveal a deeply-rooted, systematic corruption within the Texas Judicial System. Specifically, this research shows a pattern of inmates sentenced to death who were often denied appeals, convicted on circumstantial evidence, or stereotyped in court.</p>
+                    
+                    <p>The traditional narrative of Texas Civil Rights history often centers on landmark moments of progress, such as the fight for desegregation, voting rights, and the contributions of prominent leaders to the broader Civil Rights Movement. However, this focus on public triumphs frequently overlooks the systemic injustices that persisted within the judicial system, particularly the use of capital punishment as a tool of racial and social control.</p>
+                    
+                    <p>The conducted in this study shows a profound pattern of racial and judicial disparities in executions in Texas from 1924 to 1970, reflecting a history of systemic discrimination and judicial inequities. The execution data reveals that 63.4% of those executed were Black, 29.6% were White, 6.6% were Hispanic, and a marginal 0.3% were Native American. This distribution highlights the racial disparities within the justice system during this period, with Black individuals disproportionately subjected to capital punishment. These findings emphasize the intersection of race and judicial processes in Texas, where marginalized communities were more likely to face execution, often through trials marked by bias, lack of due process, and reliance on circumstantial evidence.</p>
+                    
+                    <p>In conjunction with this analysis, spatial mapping of executions highlights a concentration in Texas's eastern regions, areas historically characterized by higher racial diversity and entrenched racial tensions. While major cities like Dallas, Houston, and San Antonio also contribute significantly to the execution count, the disproportionate number of cases from rural eastern counties shows that the deep-rooted systemic corruption within local judicial systems. This geographic pattern aligns with broader socio-political dynamics of the era, where systemic racism influenced both judicial outcomes and societal structures.</p>
+
+                    <div class="image-wrapper">
+                        <p class="image-caption" style="font-weight: 600; margin-bottom: 0.5rem; font-style: normal;">Case Map</p>
+                        <img src="Screenshot 2026-07-30 at 12.03.34 AM.jpg" alt="Case Map Visualization">
+                    </div>
+
+                    <p>The case map shows single point locations where executions took place in the period under investigation. A heat map shows a geographical representation the cities where a criminal charge originated. The most common locations are shown in with a yellow glow, as shown around Houston, San Antonio, and Dallas. Frequent locations are indicated in a red glow, and least common are in a light blue glow. Racial background of executed individuals is also represented by the single dots at their designated locations, green representing white, blue representing Hispanic, and red designating black or African American. The red placards represented on the map are indicators for stories embedded in the map.</p>
+                    
+                    <p>The story map explores seven cases in detail, offering critical insight into the lived realities of individuals caught in this oppressive system and challenging traditional narratives of Civil Rights history in Texas.</p>
+
+                    <div class="image-wrapper">
+                        <p class="image-caption" style="font-weight: 600; margin-bottom: 0.5rem; font-style: normal;">Story Maps</p>
+                        <img src="Screenshot 2026-07-30 at 12.02.14 AM.jpg" alt="Story Maps Timeline Visual">
+                    </div>
+
+                    <p><strong>Tillman Simmons</strong><br>
+                    Bexar County, September 26, 1927.<br>
+                    The case of Tillman Simmons, executed on September 26, 1927, in Bexar County, serves as a counterpoint to the traditional Civil Rights narrative in Texas, which often emphasizes triumphs over systemic injustices like segregation and voter suppression. Simmons’ conviction and execution show the deeply entrenched racial inequities within the judicial system and reveal how the machinery of justice was often weaponized against Black individuals.</p>
+                    
+                    <p>Simmons, accused of being an accessory to the robbery and murder of Frank Ursry in 1924, faced trial in a system plagued by corruption and procedural irregularities. Despite evidence indicating that his co-defendant, Matthew Briscoe, fired the fatal shot, Simmons was convicted of murder and sentenced to death based largely on a contested confession that he alleged was obtained through threats and coercion by law enforcement.</p>
+                    
+                    <p>The legal proceedings in Simmons’ case reveal a justice system designed to prioritize expedience and conviction over fairness, especially for Black defendants. The Texas Court of Criminal Appeals, case No. 10329, affirmed the death sentence despite acknowledging procedural issues, such as the use of improperly formatted bills of exception and the contested voluntary nature of Simmons’ confession. The court upheld the jury's reliance on Simmons’ confession and ruled that his participation in the robbery made him equally culpable under the state’s principal liability doctrine. Simmons’ legal team argued that the jury wheel, which selected jurors, had been improperly filled, reflecting concerns about systemic jury manipulation. These arguments were dismissed, with the court requiring proof of mistakes or harm to the appellant—burdens often impossible to meet in racially biased trials.</p>
+                    
+                    <p>Simmons’ case parallels broader patterns described in Max Krochmal’s Civil Rights in Black and Brown, where the "caste-like system" in Texas created a legal framework that disproportionately punished Black individuals, often based on circumstantial evidence, stereotypes, and coerced confessions. Simmons' execution challenges the sanitized narrative of progress in Texas Civil Rights history, revealing a justice system that systematically upheld racial hierarchies and silenced the voices of those most oppressed by it…</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MUSIC PORTFOLIO SECTION -->
+        <section id="music">
+            <h2 class="section-title">Music Portfolio</h2>
+            
+            <div class="section-intro">
+                <h2>Composition and Performance</h2>
+                <p>Nino Aiyer’s studio performance of original song “Ali Pacino” (left). NYU’s Wayne Shorter Ensemble performing “On The Ginza” with Nino Aiyer as a featured soloist (right).</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/hprJACRstSQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/aMmBIZ8BJIk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            
+            <div class="about-layout">
+                <div class="about-text">
+                    <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 1.5rem;">Bio</h2>
+                    
+                    <p>Nino Aiyer is an interdisciplinary scholar, composer, and historian whose work encompasses both archival research and creative musical expression. Holding a Master of Music in Jazz Studies from New York University and a Bachelor of Arts in American Studies from The University of Texas at Austin, Aiyer draws upon his broad interest in history, sociology, politics, and musical performance to offer a unique academic perspective on civil rights, cultural preservation, and the sociopolitical movements that have shaped American society.</p>
+                    
+                    <p>As a historian, Aiyer has spearheaded projects examining the intersections of race, jurisprudence, and the significance of community media. His work includes digital archival initiatives focused on uncovering systemic injustices within Texas’ prison system, investigating the specialized role of Chicano media in Austin’s liberation movement, and exploring the existential undertone of Black American music during civil rights mobilization efforts. This analytical rigor underpins his broader scholarly commitment to unearthing overlooked histories and presenting them through accessible, evidence-based frameworks.</p>
+                    
+                    <p>As a musician and composer, Nino Aiyer maintains an active performance and recording profile. A DownBeat Music Award winner and alumnus of NYU’s premier Wayne Shorter Ensemble, he has performed at renowned venues such as the Blue Note and Dizzy’s, as well as the Panama Jazz Festival. His recent modern jazz suite, Ali Pacino, introduces an unprecedented style of improvisation focused on manifesting the “sonic persona of cottagecore.” Aiyer’s genre-blending compositions combine technical precision, jazz traditionalism, and a personal artistic vision focused on bright, musical color schemes.</p>
+                </div>
+                
+                <div class="image-wrapper" style="margin-top: 3.2rem;">
+                    <img src="IMG_3086.jpg" alt="Nino Aiyer performing studio session">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nino Aiyer. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
